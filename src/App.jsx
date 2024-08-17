@@ -15,37 +15,18 @@ function App() {
             </div>
             <div className="container-right">
                 <div className="signup-container">
-                    <h2>Sign In to Artificial Intelligence Medicare</h2>
-                    <p className="create-account">New here? <span>Create account</span></p>
-                    <label for="email">Email</label>
-                    <div className="input">
-                        <img src="./public/email.png" alt="" height={"20rem"}/>
-                        <input type="email" placeholder="Email Address" name="email"/>
-                    </div>
-                    <label for="password">Password</label>
-                    <div className="input">
-                        <img src="" alt="" />
-                        <input type="text" placeholder="Password" name="password"/>
-                    </div>
-                    <h5>Forgot pasword?</h5>
-                    <button type="submit">Sign In</button>
-                    <div className="or">
-                        <img src="" alt="" />
-                        <p> OR </p>
-                        <img src="" alt="" />
-                    </div>
+                    <h2>Welcome Back!</h2>
+                    <p className="description-signup">Continue to Google or enter your details</p>
                     <div className="Auth">
-                        <img src="" alt="" />
-                        <button type="submit">Sign in with Google</button>
+                        <button type="submit"><img src="./public/google.webp" alt="goole-logo" height={"25vh"}/>Sign in with Google</button>
                     </div>
-                    <div className="Auth">
-                        <img src="" alt="" />
-                        <button type="submit">Sign in with Facebook</button>
-                    </div>
-                    <div className="Auth">
-                        <img src="" alt="" />
-                        <button type="submit">Sign in with X</button>
-                    </div>
+                    <label for="email" className="label">Email</label>
+                    <input type="email" placeholder="Email Address" name="email" required/>
+                    <label for="password" className="label">Password</label>
+                    <input type="text" placeholder="Password" name="password" required/>
+                    <a href="" className="forgot">Forgot pasword?</a>
+                    <button className="login" type="submit">Login</button>
+                    <p className="create-account">Don't have an account? <a href="">Sign Up for Free</a></p>
                 </div>
             </div>
         </div>
