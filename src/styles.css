@@ -16,6 +16,7 @@
     background-size: cover;
     width: 60%;
     height: 100vh;
+    overflow: hidden;
 }
 
 .logo {
@@ -99,6 +100,11 @@ button {
     align-items: center;
 }
 
+button:hover {
+    border: 1px solid black;
+    color: black;
+}
+
 .label {
     margin-right: auto;
     margin-bottom: .4rem;
@@ -126,6 +132,7 @@ input {
 
 .login:hover {
     background-color: rgb(21, 21, 35);
+    color: white;
 }
 
 .create-account {
