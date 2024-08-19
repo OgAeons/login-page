@@ -1,7 +1,29 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React, { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import Input from "../components/Input"
+import { account } from "../lib/appwriteConfig"
 
 function Login() {
+    const [user, setUser] = useState({
+        email: '',
+        password: ''
+    })
+
+    const navigate = useNavigate()
+
+    async function loginUser(e) {
+        e.preventDefault()
+        console.log(user);
+        try {
+            navigate('/home')
+            const userId = Math.random().toString(36).substring(2, 9);
+            await account.createSession(userId, user.password)
+        } catch (error) {
+            console.log(error.message);
+            
+        }
+    }
+
     return (
         <div className="container-right">
             <div className="signup-container">
@@ -10,12 +32,22 @@ function Login() {
                 <div className="Auth">
                     <button type="submit"><img src="./public/google.webp" alt="goole-logo" height={"25vh"}/>Sign in with Google</button>
                 </div>
-                <label for="email" className="label">Email</label>
-                <input type="email" placeholder="Email Address" name="email" required/>
-                <label for="password" className="label">Password</label>
-                <input type="text" placeholder="Password" name="password" required/>
+                <Input 
+                    name="email"
+                    placeholder="Email Address"
+                    type="email"
+                    user={user}
+                    setUser={setUser}
+                />
+                <Input 
+                    name="password"
+                    placeholder="Password"
+                    type="password"
+                    user={user}
+                    setUser={setUser}
+                />
                 <a href="" className="forgot">Forgot pasword?</a>
-                <button className="submit" type="submit">Login</button>
+                <button onClick={(e) => {loginUser(e)}} className="submit" type="submit">Login</button>
                 <p className="create-account">Don't have an account? <Link to={`/register`}>Sign Up for Free</Link></p>
             </div>
         </div>

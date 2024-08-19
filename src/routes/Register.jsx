@@ -22,7 +22,7 @@ function Register(props) {
             console.log(newUser);
             navigate('/home')
             try {
-                const sess = account.createSession(userId, user.password);
+                await account.createSession(userId, user.password);
                 console.log('Session created:', sess)
             } catch (sessionError) {
                 console.error('Error creating session:', sessionError.message);
