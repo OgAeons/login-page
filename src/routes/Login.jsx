@@ -26,8 +26,8 @@ function Login() {
                     <label for="password" className="label">Password</label>
                     <input type="text" placeholder="Password" name="password" required/>
                     <a href="" className="forgot">Forgot pasword?</a>
-                    <button className="login" type="submit">Login</button>
-                    <p className="create-account">Don't have an account? <Link to={`/signup`}>Sign Up for Free</Link></p>
+                    <button className="submit" type="submit">Login</button>
+                    <p className="create-account">Don't have an account? <Link to={`/register`}>Sign Up for Free</Link></p>
                 </div>
             </div>
         </div>

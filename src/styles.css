@@ -56,6 +56,10 @@
 
 .container-right {
     /* background-color: blue; */
+    font-family: "Work Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
     width: 40%;
     height: 100vh;
 }
@@ -125,12 +129,12 @@ input {
     margin-bottom: 2rem;
 }
 
-.login {
+.submit {
     color: white;
     background-color: rgb(68, 68, 248);
 }
 
-.login:hover {
+.submit:hover {
     background-color: rgb(21, 21, 35);
     color: white;
 }
