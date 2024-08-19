@@ -1,21 +1,32 @@
 import React, { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Input from "../components/Input"
 import { account } from "../lib/appwriteConfig"
 
-function Register() {
+function Register(props) {
     const [user, setUser] = useState({
         name: '',
         email: '', 
         password: ''
     })
 
+    const navigate = useNavigate()
+
     async function registerUser(e) {
         e.preventDefault()
         try {
-            const userId = "unique()"
+            const userId = Math.random().toString(36).substring(2, 9);
+            console.log(userId);
+            
             const newUser = await account.create(userId, user.email, user.password, user.name)
             console.log(newUser);
+            navigate('/home')
+            try {
+                const sess = account.createSession(userId, user.password);
+                console.log('Session created:', sess)
+            } catch (sessionError) {
+                console.error('Error creating session:', sessionError.message);
+            }
         } catch (error) {
             console.log(error.message);
         }
@@ -46,12 +57,12 @@ function Register() {
                 <Input 
                     name="password"
                     placeholder="Password"
-                    type="text"
+                    type="password"
                     user={user}
                     setUser={setUser}
                 />
                 <a href="" className="forgot">Forgot pasword?</a>
-                <button onClick={(e) => registerUser(e)} className="submit" type="submit">Register</button>
+                <button onClick={(e) => {registerUser(e)}} className="submit" type="submit">Register</button>
                 <p className="create-account">Already have an account? <Link to={`/`}>Sign In</Link></p>
             </div>
         </div>
