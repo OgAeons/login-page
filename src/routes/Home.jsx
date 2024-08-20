@@ -32,21 +32,23 @@ function Home() {
     if(user) {
         return (
             <div>
-                <h1> Home Page </h1>
-                <h6>Welcome, Username</h6>
-                <div>
-                    <button onClick={(e) => handleLogout(e)}>Logout</button>
-                    <button>Change Password</button>
+                <h1 className="home-title"> Home Page </h1>
+                <div className="user-section">
+                    <h3>Welcome, {user?.name}</h3>
+                    <button onClick={(e) => handleLogout(e)} className='home-btn' style={{backgroundColor: "red"}}>Logout</button>
+                    <button className='home-btn' style={{backgroundColor: "blue"}}>Change Password</button>
                 </div>
-                <div>
+                <hr />
+                <div className='user-details'>
                     <h6>UID : {user?.$id || "N/A"}</h6>
                     <h6>Name : {user?.name || "N/A"}</h6>
                     <h6>Email : {user?.email || "N/A"}</h6>
                     <h6>Email Verified : {user.emailVerification ? 'Verified' : 'Not Verified'}</h6>
-                    <h6>Registered on :{ new Date(user.registration * 1000).toDateString() } </h6>
+                    <h6>Registered on : {new Date(user.registration * 1000).toDateString()} </h6>
                 </div>
+                <hr />
                 <div>
-                    <button>Delete Account</button>
+                    <button style={{width: "auto", backgroundColor: "black", color: "white", margin: "1rem auto"}}>Delete Account</button>
                 </div>
             </div>
         )
