@@ -173,3 +173,10 @@ a {
     font-size: 2rem;
     margin: 1rem;
 }
+
+.delete-btn {
+    width: auto;
+    background-color: black;
+    color: white;
+    margin: 1rem auto;
+}

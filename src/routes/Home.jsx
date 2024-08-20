@@ -29,6 +29,16 @@ function Home() {
         }
     }
 
+    async function handleDelete(e) {
+        e.preventDefault()
+        try {
+            await account.deleteIdentity(user.$id)
+            navigate('/register')
+        } catch (error){
+            console.log('Error deleting user:', error.message);
+        }
+    }
+
     if(user) {
         return (
             <div>
@@ -48,7 +58,7 @@ function Home() {
                 </div>
                 <hr />
                 <div>
-                    <button style={{width: "auto", backgroundColor: "black", color: "white", margin: "1rem auto"}}>Delete Account</button>
+                    <button className="delete-btn" onClick={(e) => handleDelete(e)}>Delete Account</button>
                 </div>
             </div>
         )
