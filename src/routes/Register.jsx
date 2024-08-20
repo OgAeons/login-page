@@ -15,20 +15,14 @@ function Register(props) {
     async function registerUser(e) {
         e.preventDefault()
         try {
-            const userId = Math.random().toString(36).substring(2, 9);
-            console.log(userId);
-            
+            const userId = Math.random().toString(36).substring(2, 9)
             const newUser = await account.create(userId, user.email, user.password, user.name)
-            console.log(newUser);
+            console.log('User created:', newUser)
+            await account.createEmailPasswordSession(user.email, user.password)
+            console.log('Session created')
             navigate('/home')
-            try {
-                await account.createSession(userId, user.password);
-                console.log('Session created:', sess)
-            } catch (sessionError) {
-                console.error('Error creating session:', sessionError.message);
-            }
         } catch (error) {
-            console.log(error.message);
+            console.error('Error during registration:', error.message)
         }
     }
 

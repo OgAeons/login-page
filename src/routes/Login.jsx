@@ -8,19 +8,17 @@ function Login() {
         email: '',
         password: ''
     })
-
     const navigate = useNavigate()
 
     async function loginUser(e) {
         e.preventDefault()
         console.log(user);
         try {
+            await account.createEmailPasswordSession(user.email, user.password)
+            console.log('Session created')
             navigate('/home')
-            const userId = Math.random().toString(36).substring(2, 9);
-            await account.createSession(userId, user.password)
         } catch (error) {
             console.log(error.message);
-            
         }
     }
 
