@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import Input from "../components/Input"
+import GoogleAuth from "../components/GoogleAuth"
 import { account } from "../lib/appwriteConfig"
 
 function Login() {
@@ -27,9 +28,7 @@ function Login() {
             <div className="signup-container">
                 <h2>Welcome Back!</h2>
                 <p className="description-signup">Continue to Google or enter your details</p>
-                <div className="Auth">
-                    <button type="submit"><img src="./public/google.webp" alt="goole-logo" height={"25vh"}/>Sign in with Google</button>
-                </div>
+                <GoogleAuth />
                 <Input 
                     name="email"
                     placeholder="Email Address"

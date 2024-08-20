@@ -54,7 +54,7 @@ function Home() {
                     <h6>Name : {user?.name || "N/A"}</h6>
                     <h6>Email : {user?.email || "N/A"}</h6>
                     <h6>Email Verified : {user.emailVerification ? 'Verified' : 'Not Verified'}</h6>
-                    <h6>Registered on : {new Date(user.registration * 1000).toDateString()} </h6>
+                    <h6>Registered on : {new Date(user.registration).toDateString()} </h6>
                 </div>
                 <hr />
                 <div>
